@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     title: videoTitle,
                     description: videoDescription,
                     url: e.target.result,
-                    views: 0
+                    views: 0,
+                    thumbnail: createThumbnail(videoUpload) // Call to generate thumbnail
                 };
                 videos.push(newVideo);
                 localStorage.setItem('videos', JSON.stringify(videos));
@@ -84,6 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
             reader.readAsDataURL(videoUpload);
         }
     });
+
+    const createThumbnail = (file) => {
+        return 'default-thumbnail.png'; // Placeholder, should generate a real thumbnail
+    };
 
     loadVideos();
 });
